@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -37,16 +38,14 @@ public class Result extends AppCompatActivity {
     }
 
     public void jsonLoader(String apiUrl){
-        JSONParse jsonParse = new JSONParse().execute(apiUrl);
-        JSONObject jsonObject = jsonParse.getJSONFromUrl(apiUrl,null);
-        String desc = "Sem descrição", url = "Imagem não encontrada", title = "Titulo não encontrado", autor = "Desconhecido", date="Data não encontrada", downloadURL;
+        JSONObject jsonObj = new JSONParse().doInBackground(apiUrl);
+        String desc = "Sem descrição", url = "Imagem não encontrada", title = "Titulo não encontrado", autor = "Desconhecido", date="Data não encontrada";
         try {
-            desc = jsonObject.get("explanation").toString();
-            url = jsonObject.get("url").toString();
-            title = jsonObject.get("title").toString();
-            date = jsonObject.get("date").toString();
-            downloadURL = url;
-            autor = jsonObject.get("copyright").toString();
+            desc = jsonObj.get("explanation").toString();
+            url = jsonObj.get("url").toString();
+            title = jsonObj.get("title").toString();
+            date = jsonObj.get("date").toString();
+            autor = jsonObj.get("copyright").toString();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -74,4 +73,5 @@ public class Result extends AppCompatActivity {
             return null;
         }
     }
+
 }

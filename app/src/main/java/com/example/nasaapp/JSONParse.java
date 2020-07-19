@@ -21,27 +21,18 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class JSONParse extends AsyncTaskLoader<JSONObject> {
+public class JSONParse extends AsyncTask<String, String, JSONObject> {
     static InputStream is = null;
     static JSONObject jsonObject = null;
     static String output = null;
 
-    public JSONParse(@NonNull Context context) {
-        super(context);
-    }
-
-    public void getJSONFromUrl(String urlMain, List params) {
-
-    }
-
-    @Nullable
     @Override
-    public JSONObject loadInBackground() {
+    protected JSONObject doInBackground(String... strings) {
         URL url;
         HttpURLConnection urlConnection;
 
         try {
-            url = new URL("https://api.nasa.gov/planetary/apod?api_key=uudbjb6RRUtZRgd2lrkdjynY9L1RKai7W09VxomI&date=2020-07-15");
+            url = new URL(strings[0]);
             urlConnection = (HttpURLConnection) url.openConnection();
         }
         catch (MalformedURLException e) {
@@ -79,5 +70,9 @@ public class JSONParse extends AsyncTaskLoader<JSONObject> {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
         return jsonObject;
+    }
+
+    protected void onPostExecute(JSONObject jsonObject){
+        super.onPostExecute(jsonObject);
     }
 }
