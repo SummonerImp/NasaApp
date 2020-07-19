@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">NasaApp</string>
+    <string name="txtData">Digite uma data:</string>
+    <string name="dataHint">dd/MM/yyyy</string>
+    <string name="btnPesq">Pesquisar</string>
+    <string name="btnExplicita">Mais Imagens</string>
+    <string name="titulo">titulo</string>
+    <string name="data">data</string>
+    <string name="conteudo">conteudo</string>
+    <string name="autor">autor</string>
+</resources>
