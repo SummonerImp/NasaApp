@@ -19,9 +19,10 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class Result extends AppCompatActivity {
+public class Result extends AppCompatActivity implements AsyncResponse {
     TextView lblTitle, lblDate, lblContent, lblAutor;
     ImageView imgNasa;
+    JSONParse jsonparse = new JSONParse();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,25 +35,26 @@ public class Result extends AppCompatActivity {
         lblTitle = (TextView)findViewById(R.id.lblTitle);
         lblAutor = (TextView)findViewById(R.id.lblAutor);
         imgNasa = (ImageView)findViewById(R.id.imgNasa);
-        jsonLoader(apiUrl);
+        jsonparse.delegate = this;
+        jsonparse.execute(apiUrl);
     }
 
-    public void jsonLoader(String apiUrl){
-        JSONObject jsonObj = new JSONParse().doInBackground(apiUrl);
+    @Override
+    public void processFinished(JSONObject output) {
         String desc = "Sem descrição", url = "Imagem não encontrada", title = "Titulo não encontrado", autor = "Desconhecido", date="Data não encontrada";
         try {
-            desc = jsonObj.get("explanation").toString();
-            url = jsonObj.get("url").toString();
-            title = jsonObj.get("title").toString();
-            date = jsonObj.get("date").toString();
-            autor = jsonObj.get("copyright").toString();
+            desc = output.get("explanation").toString();
+            url = output.get("url").toString();
+            title = output.get("title").toString();
+            date = output.get("date").toString();
+            autor = output.get("copyright").toString();
         } catch (JSONException e) {
             e.printStackTrace();
         }
         lblTitle.setText(title);
         lblDate.setText(date);
         lblAutor.setText(autor);
-        imgNasa.setImageBitmap(getBitmapFromURL(url));
+        //imgNasa.setImageBitmap(getBitmapFromURL(url));
         lblContent.setText(desc);
     }
 
@@ -73,5 +75,4 @@ public class Result extends AppCompatActivity {
             return null;
         }
     }
-
 }

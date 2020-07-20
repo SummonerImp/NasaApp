@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                txtDate.setText(dayOfMonth + "-" + monthOfYear + "-" + year);
-                                data = year + "-" + monthOfYear + "-" + dayOfMonth;
+                                txtDate.setText(dayOfMonth + "-" + (monthOfYear+1) + "-" + year);
+                                data = year + "-" + (monthOfYear+1) + "-" + dayOfMonth;
                             }
                         }, year, month, day);
                 picker.show();
@@ -67,10 +67,11 @@ public class MainActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void Api(View v){
         try {
-            final String apiUrl = "https://api.nasa.gov/planetary/apod?api_key=uudbjb6RRUtZRgd2lrkdjynY9L1RKai7W09VxomI&date=" + data;
+            String apiUrl = "https://api.nasa.gov/planetary/apod?api_key=uudbjb6RRUtZRgd2lrkdjynY9L1RKai7W09VxomI&date=" + data;
             Intent it = new Intent(this, Result.class);
             it.putExtra("url", apiUrl);
             startActivity(it);
+            Log.i("alerta", apiUrl);
         }
         catch(Exception e){
             Log.e("erro", String.valueOf(e));

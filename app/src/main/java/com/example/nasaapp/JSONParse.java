@@ -25,6 +25,7 @@ public class JSONParse extends AsyncTask<String, String, JSONObject> {
     static InputStream is = null;
     static JSONObject jsonObject = null;
     static String output = null;
+    public AsyncResponse delegate = null;
 
     @Override
     protected JSONObject doInBackground(String... strings) {
@@ -73,6 +74,6 @@ public class JSONParse extends AsyncTask<String, String, JSONObject> {
     }
 
     protected void onPostExecute(JSONObject jsonObject){
-        super.onPostExecute(jsonObject);
+        delegate.processFinished(jsonObject);
     }
 }
