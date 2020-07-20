@@ -16,7 +16,6 @@ public class Result extends AppCompatActivity implements AsyncResponse {
     ImageView imgNasa;
     JSONParse jsonparse = new JSONParse();
     bmParse btmParse = new bmParse();
-    Bitmap bm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
