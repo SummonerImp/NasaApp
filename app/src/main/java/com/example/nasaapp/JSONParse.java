@@ -1,12 +1,7 @@
 package com.example.nasaapp;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.loader.content.AsyncTaskLoader;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,7 +14,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 public class JSONParse extends AsyncTask<String, String, JSONObject> {
     static InputStream is = null;

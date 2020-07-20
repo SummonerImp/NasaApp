@@ -23,6 +23,8 @@ public class Result extends AppCompatActivity implements AsyncResponse {
     TextView lblTitle, lblDate, lblContent, lblAutor;
     ImageView imgNasa;
     JSONParse jsonparse = new JSONParse();
+    bmParse btmParse = new bmParse();
+    Bitmap bm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class Result extends AppCompatActivity implements AsyncResponse {
         lblAutor = (TextView)findViewById(R.id.lblAutor);
         imgNasa = (ImageView)findViewById(R.id.imgNasa);
         jsonparse.delegate = this;
+        btmParse.btm = this;
         jsonparse.execute(apiUrl);
     }
 
@@ -54,25 +57,12 @@ public class Result extends AppCompatActivity implements AsyncResponse {
         lblTitle.setText(title);
         lblDate.setText(date);
         lblAutor.setText(autor);
-        //imgNasa.setImageBitmap(getBitmapFromURL(url));
+        btmParse.execute(url);
         lblContent.setText(desc);
     }
 
-    public static Bitmap getBitmapFromURL(String src) {
-        try {
-            Log.e("src",src);
-            URL url = new URL(src);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            InputStream input = connection.getInputStream();
-            Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            Log.e("Bitmap","returned");
-            return myBitmap;
-        } catch (IOException e) {
-            e.printStackTrace();
-            Log.e("Exception",e.getMessage());
-            return null;
-        }
+    @Override
+    public void bitmapProcess(Bitmap bm) {
+        imgNasa.setImageBitmap(bm);
     }
 }
