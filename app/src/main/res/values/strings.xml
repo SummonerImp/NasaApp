@@ -8,4 +8,8 @@
     <string name="data">data</string>
     <string name="conteudo">conteudo</string>
     <string name="autor">autor</string>
+    <string name="btnLocal">Localização</string>
+    <string name="btnMyLocation">Minha Localização</string>
+    <string name="txtLocation">Digite um endereço:</string>
+    <string name="txtOr">Ou</string>
 </resources>

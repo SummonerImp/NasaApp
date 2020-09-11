@@ -16,7 +16,7 @@ import android.widget.EditText;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnPesq, btnExplicita;
+    Button btnPesq, btnExplicita, btnLocal;
     EditText txtDate;
     String data;
 
@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnPesq = (Button)findViewById(R.id.btnBusca);
-        btnExplicita = (Button)findViewById(R.id.btnExplicita);
-        txtDate = (EditText)findViewById(R.id.txtDate);
+        btnPesq = findViewById(R.id.btnBusca);
+        btnExplicita = findViewById(R.id.btnExplicita);
+        txtDate = findViewById(R.id.txtDate);
         txtDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 picker.show();
             }
         });
+        btnLocal = findViewById(R.id.idLocal);
     }
 
     public void Explicita(View v){
@@ -65,5 +66,10 @@ public class MainActivity extends AppCompatActivity {
         catch(Exception e){
             Log.e("erro", String.valueOf(e));
         }
+    }
+
+    public void itLocal(View v){
+        Intent it = new Intent(this, Localizacao.class);
+        startActivity(it);
     }
 }

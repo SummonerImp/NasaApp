@@ -32,8 +32,10 @@
         android:text="@string/btnPesq"
         app:layout_constraintBottom_toTopOf="@+id/btnExplicita"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDate" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDate"
+        app:layout_constraintVertical_bias="0.421" />
 
     <Button
         android:id="@+id/btnExplicita"
@@ -41,11 +43,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="163dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="236dp"
+        android:layout_marginBottom="20dp"
         android:onClick="Explicita"
         android:text="@string/btnExplicita"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/idLocal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -59,5 +62,18 @@
         app:layout_constraintEnd_toEndOf="@+id/txtDate"
         app:layout_constraintStart_toStartOf="@+id/txtDate"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/idLocal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="283dp"
+        android:onClick="itLocal"
+        android:text="@string/btnLocal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnExplicita"
+        app:layout_constraintStart_toStartOf="@+id/btnExplicita"
+        app:layout_constraintTop_toBottomOf="@+id/txtDate"
         app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
