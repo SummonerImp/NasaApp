@@ -6,55 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".Result">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
-        android:orientation="vertical"
+        android:onClick="save"
+        android:text="@string/btnSave"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/lblTitle"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:paddingLeft="10dp"
-            android:paddingTop="25dp"
-            android:paddingRight="5dp"
-            android:text="@string/titulo"
-            android:textColor="@android:color/black" />
-
-        <TextView
             android:id="@+id/lblDate"
             android:layout_width="match_parent"
             android:layout_height="29dp"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:paddingTop="10dp"
-            android:paddingRight="5dp"
+            android:paddingEnd="5dp"
             android:text="@string/data"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/lblTitle"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/titulo"
             android:textColor="@android:color/black" />
 
         <TextView
             android:id="@+id/lblAutor"
             android:layout_width="match_parent"
             android:layout_height="34dp"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:paddingTop="10dp"
-            android:paddingRight="5dp"
+            android:paddingEnd="5dp"
             android:text="@string/autor"
             android:textColor="@android:color/black" />
 
         <ImageView
             android:id="@+id/imgNasa"
             android:layout_width="match_parent"
-            android:layout_height="337dp"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:adjustViewBounds="true"
+            android:contentDescription="TODO"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_launcher_background" />
 
@@ -62,11 +74,13 @@
             android:id="@+id/lblContent"
             android:layout_width="match_parent"
             android:layout_height="338dp"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:paddingTop="5dp"
-            android:paddingRight="5dp"
+            android:paddingEnd="5dp"
             android:text="@string/conteudo"
             android:textColor="@android:color/black"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:scrollbars = "vertical" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
