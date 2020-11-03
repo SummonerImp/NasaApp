@@ -42,28 +42,10 @@ public class NasaApodDAO {
             na.setDate(cursor.getString(5));
             nasaData.add(na);
         }
-        db.close();
         return nasaData;
     }
 
     public void delete(NasaApod na){
         db.delete("nasaData", "id = ?", new String[]{na.getId().toString()});
-    }
-
-    public List<NasaApod> selectOne(String i){
-        List<NasaApod> naList = new ArrayList<>();
-        Cursor cursor = db.query("nasaData", new String[]{"id", "title", "author", "content", "urlImage", "data"}, "id = ?", new String[]{i}, null, null, null);
-        if(cursor.moveToFirst()){
-            NasaApod na = new NasaApod();
-            na.setId(cursor.getInt(0));
-            na.setTitle(cursor.getString(1));
-            na.setAuthor(cursor.getString(2));
-            na.setContent(cursor.getString(3));
-            na.setUrlImg(cursor.getString(4));
-            na.setDate(cursor.getString(5));
-            naList.add(na);
-        }
-        db.close();
-        return naList;
     }
 }

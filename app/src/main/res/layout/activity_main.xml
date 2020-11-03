@@ -35,7 +35,7 @@
         app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDate"
-        app:layout_constraintVertical_bias="0.421" />
+        app:layout_constraintVertical_bias="0.606" />
 
     <Button
         android:id="@+id/btnExplicita"
@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="163dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="296dp"
         android:onClick="Explicita"
         android:text="@string/btnExplicita"
         app:layout_constraintBottom_toTopOf="@+id/idLocal"
@@ -71,6 +71,7 @@
         android:layout_marginBottom="283dp"
         android:onClick="itLocal"
         android:text="@string/btnLocal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnExplicita"
         app:layout_constraintStart_toStartOf="@+id/btnExplicita"
@@ -90,5 +91,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/idLocal" />
+        app:layout_constraintTop_toBottomOf="@+id/idLocal"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
