@@ -36,6 +36,15 @@ public class SavedContents extends AppCompatActivity{
         ArrayAdapter<NasaApod> adapter = new ArrayAdapter<NasaApod>(this, android.R.layout.simple_list_item_1, nasaData);
         listView.setAdapter(adapter);
         registerForContextMenu(listView);
+        final Intent intent = new Intent(this, Result.class);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                NasaApod na = (NasaApod)listView.getItemAtPosition(i);
+                intent.putExtra("objNasa", na);
+                startActivity(intent);
+            }
+        });
     }
 
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo){
